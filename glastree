@@ -158,11 +158,10 @@ sub recurse
                 or $new_stat->mtime != $yesterday_stat->mtime
                 or $new_stat->size  != $yesterday_stat->size)
             {
-                print "copy: $new_path -> $today_path\n";
+                print "new/changed: $new_path\n";
                 copystat ($new_path, $today_path, $new_stat);
             }
             else {
-                print "link: $yesterday_path -> $today_path\n";
                 link ($yesterday_path, $today_path);
             }
         }
